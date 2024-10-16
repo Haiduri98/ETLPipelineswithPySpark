@@ -1,0 +1,94 @@
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+__pycache__/
+*.so
+
+# Virtualenv
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Conda environment
+.conda/
+*.conda
+*.env
+*.lock
+*.yml
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Docker
+**/Dockerfile
+**/docker-compose.yml
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Python Unit Test / Coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+
+# pytest
+.cache/
+.pytest_cache/
+
+# MySQL
+*.sql
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Microsoft SQL Server
+*.mdf
+*.ldf
+
+# JetBrains (PyCharm, IntelliJ)
+.idea/
+
+# Ignore IDE specific files
+*.suo
+*.ntvs
+*.njsproj
+*.sln
+*.sw?
+
+# Git directories
+.git/
+.gitignore
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Project-specific files
+*.env
+*.bak

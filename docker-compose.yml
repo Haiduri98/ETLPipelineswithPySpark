@@ -1,0 +1,46 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver_pyspark
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Passw0rd
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+      - /home/haiduri/Desktop/pythonProjects/ETLProjects/PySparkETLPipeline/projectEtl/data/AdventureWorksDW2019.bak:/var/opt/mssql/data/AdventureWorksDW2019.bak  # Mount the .bak file , please notice the both the path for where the restore db can be found on the machine but also given the path for the docker container, hence : the semicolon
+    networks:
+      - db_network
+
+  db:
+    image: postgres
+    container_name: local_pgdb_pyspark
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container_pyspark
+    restart: always
+    ports:
+      - "8889:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  sqlserver_data:
+  local_pgdata:
+  pgadmin-data:
+
+networks:
+  db_network:
